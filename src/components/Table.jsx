@@ -46,12 +46,12 @@ const Table = ({ columns, users }) => {
           placeholder="Search..."
         />
       </div>
-      <table width={table.getTotalSize()}>
+      <table>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <th key={header.id} width={header.getSize()}>
+                <th key={header.id}>
                   {header.isPlaceholder ? null : (
                     <div
                       {...{
@@ -97,7 +97,7 @@ const Table = ({ columns, users }) => {
           {table.getRowModel().rows.map((row) => (
             <tr key={row.id}>
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id} width={cell.column.getSize()}>
+                <td key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}

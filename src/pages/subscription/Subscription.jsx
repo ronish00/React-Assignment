@@ -1,76 +1,60 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import { useFetchQuery } from "../../hooks/useFetchQuery";
 
 const Subscription = () => {
-    const [subscription, setSubscription] = useState([]);
-    const [users, setUsers] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
 
-    const { id } = useParams();
+  const { data: users, loading: usersLoading, error: usersError } = useFetchQuery('/users.json');
+  const { data: subscriptions, loading: subscriptionsLoading, error: subscriptionsError } = useFetchQuery('/subscriptions.json');
+  const { id } = useParams();
 
-    const userSubscription = subscription.find((plan) => plan.user_id === id);
-    const subscriber = users.find((user) => user.id == id);
-    console.log(subscriber)
+  const userSubscription = subscriptions?.find((plan) => plan.user_id === id);
+  const subscriber = users?.find((user) => user.id == id);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const [subscriptionResponse, userResponse] = await Promise.all([
-                    fetch('/subscriptions.json'),
-                    fetch('/users.json')
-                ]);
-
-                if (!subscriptionResponse.ok) throw new Error('Failed to get subscription');
-                if (!userResponse.ok) throw new Error('Failed to get users');
-
-                const subscriptionData = await subscriptionResponse.json();
-                const userData = await userResponse.json();
-
-                setSubscription(subscriptionData);
-                setUsers(userData);
-            } catch (error) {
-                setError(error.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
-
+  if (usersLoading || subscriptionsLoading) {
+    return <div>Loading...</div>;
+  }
+  
+  if (usersError || subscriptionsError) {
     return (
-        <div>
-            {
-                userSubscription == null ? (
-                    <div>No Plan Found</div>
-                ) : (
-                    <div>
-                        <p><strong>User ID:</strong> {userSubscription.user_id}</p>
-                        <p><strong>Package:</strong> {userSubscription.package}</p>
-                        <p><strong>Expires On:</strong> {new Date(userSubscription.expires_on).toLocaleDateString()}</p>
-                    </div>
-                )
-            }
-            {
-                subscriber && (
-                    <div>
-                        <h3>Subscriber Info:</h3>
-                        <p><strong>Name:</strong> {subscriber.first_name} {subscriber.middle_name} {subscriber.last_name}</p>
-                        <p><strong>Email:</strong> {subscriber.email}</p>
-                    </div>
-                )
-            }
-        </div>
+      <div>
+        <p>{usersError && `Error fetching users: ${usersError}`}</p>
+        <p>{subscriptionsError && `Error fetching subscriptions: ${subscriptionsError}`}</p>
+      </div>
     );
+  }
+
+  return (
+    <div>
+      {userSubscription == null ? (
+        <div>No Plan Found</div>
+      ) : (
+        <div>
+          <p>
+            <strong>User ID:</strong> {userSubscription.user_id}
+          </p>
+          <p>
+            <strong>Package:</strong> {userSubscription.package}
+          </p>
+          <p>
+            <strong>Expires On:</strong>{" "}
+            {new Date(userSubscription.expires_on).toLocaleDateString()}
+          </p>
+        </div>
+      )}
+      {subscriber && (
+        <div>
+          <h3>subscriber Info:</h3>
+          <p>
+            <strong>Name:</strong> {subscriber.first_name}{" "}
+            {subscriber.middle_name} {subscriber.last_name}
+          </p>
+          <p>
+            <strong>Email:</strong> {subscriber.email}
+          </p>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Subscription;

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;500;600;700&family=Work+Sans:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+ul{
+    list-style: none;
+}
+
+button{
+    background-color: rgb(55, 111, 233);
+    color: white;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+}

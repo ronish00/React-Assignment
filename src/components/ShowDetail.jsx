@@ -6,7 +6,7 @@ const ShowDetail = ({ userId }) => {
     const navigate = useNavigate();
 
     const handleShowDetail = () => {
-        navigate(`user/${userId}`)
+        navigate(`/users/${userId}`)
     }
 
   return (

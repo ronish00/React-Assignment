@@ -31,12 +31,6 @@ export const COLUMN = [
     sortingFn: "alphanumeric",
   },
   {
-    accessorKey: "active",
-    header: "Status",
-    cell: (props) => <p>{props.getValue()}</p>,
-    sortingFn: "alphanumeric",
-  },
-  {
     accessorKey: "address",
     header: "Address",
     cell: (props) => <p>{props.getValue()}</p>,
@@ -45,12 +39,6 @@ export const COLUMN = [
   {
     accessorKey: "country",
     header: "Country",
-    cell: (props) => <p>{props.getValue()}</p>,
-    sortingFn: "alphanumeric",
-  },
-  {
-    accessorKey: "join_date",
-    header: "Started At",
     cell: (props) => <p>{props.getValue()}</p>,
     sortingFn: "alphanumeric",
   },
