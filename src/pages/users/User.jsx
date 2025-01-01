@@ -38,6 +38,7 @@ function User() {
 
   return (
     <>
+      <h1>Subscribers</h1>
       <Table columns={COLUMN} users={users} />
     </>
   );
