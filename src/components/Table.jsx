@@ -42,7 +42,7 @@ const Table = ({ columns, users }) => {
       <div>
         <input
           value={globalFilter}
-          onChange={(e) => table.setGlobalFilter(e.target.value)}
+          onChange={(e) => {table.setGlobalFilter(e.target.value)}}
           placeholder="Search..."
         />
       </div>

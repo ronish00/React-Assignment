@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
-const ShowDetail = ({ userId, row }) => {
+const ShowDetail = ({ userId }) => {
     const navigate = useNavigate();
 
     const handleShowDetail = () => {

@@ -2,7 +2,12 @@ import ShowDetail from "../../components/ShowDetail";
 
 export const COLUMN = [
   {
-    accessorKey: "full_name",
+    accessorFn: (row) => {
+      const { first_name, middle_name, last_name } = row;
+      return [first_name, middle_name, last_name]
+        .filter(Boolean)
+        .join(" ");
+    },
     header: "Full Name",
     cell: (props) => {
       const row = props.row.original; // Access the entire row data
@@ -10,37 +15,6 @@ export const COLUMN = [
         .filter(Boolean) // Filter out null/undefined values
         .join(" ");
       return <p>{fullName}</p>;
-    },
-    filterFn: (row, columnId, filterValue) => {
-      const rowData = row.original; // Access the raw row data
-      const fullName = [
-        rowData.first_name,
-        rowData.middle_name,
-        rowData.last_name,
-      ]
-        .filter(Boolean) // Remove null/undefined values
-        .join(" ")
-        .toLowerCase();
-      return fullName.includes(filterValue.toLowerCase());
-    },
-    sortingFn: (rowA, rowB, columnId) => {
-      const fullNameA = [
-        rowA.original.first_name,
-        rowA.original.middle_name,
-        rowA.original.last_name,
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
-      const fullNameB = [
-        rowB.original.first_name,
-        rowB.original.middle_name,
-        rowB.original.last_name,
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
-      return fullNameA.localeCompare(fullNameB);
     },
     size: 250,
   },
@@ -83,10 +57,9 @@ export const COLUMN = [
   {
     accessorKey: "id",
     header: "",
-    cell: ({getValue, row}) => {
-      const email = row.original.email
+    cell: ({getValue}) => {
       return (
-        <ShowDetail userId={getValue()} row={row}  />
+        <ShowDetail userId={getValue()} />
       )
     },
     enableSorting: false,
