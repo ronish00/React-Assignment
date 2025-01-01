@@ -2,11 +2,11 @@ import React, { useCallback, useState } from "react";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
-const ShowDetail = ({ userId }) => {
+const ShowDetail = ({ subscriberId }) => {
     const navigate = useNavigate();
 
     const handleShowDetail = () => {
-        navigate(`/users/${userId}`)
+        navigate(`/subscribers/${subscriberId}`)
     }
 
   return (

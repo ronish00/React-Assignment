@@ -1,10 +1,10 @@
 .sidebar{
-    width: 240px;
     border-right: 1px solid #ddd;
     position: sticky;
     height: 100vh;
     top: 0;
 }
+
 .logo{
     font-size: 24px;
     font-weight: 600;
@@ -12,6 +12,7 @@
     letter-spacing: 2px;
     color: rgb(55, 111, 233);
 }
+
 .nav{
     margin-top: 50px;
     display: flex;

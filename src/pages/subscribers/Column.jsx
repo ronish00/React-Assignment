@@ -14,32 +14,32 @@ export const COLUMN = [
       const fullName = [row.first_name, row.middle_name, row.last_name]
         .filter(Boolean) // Filter out null/undefined values
         .join(" ");
-      return <p>{fullName}</p>;
+      return <p className="name" title={props.getValue()}>{fullName}</p>;
     },
     size: 250,
   },
   {
     accessorKey: "username",
     header: "Username",
-    cell: (props) => <p>{props.getValue()}</p>,
+    cell: (props) => <p className="username" title={props.getValue()}>{props.getValue()}</p>,
     sortingFn: "alphanumeric",
   },
   {
     accessorKey: "email",
     header: "Email",
-    cell: (props) => <p>{props.getValue()}</p>,
+    cell: (props) => <p className="email"  title={props.getValue()}>{props.getValue()}</p>,
     sortingFn: "alphanumeric",
   },
   {
     accessorKey: "address",
     header: "Address",
-    cell: (props) => <p>{props.getValue()}</p>,
+    cell: (props) => <p className="address"  title={props.getValue()}>{props.getValue()}</p>,
     sortingFn: "alphanumeric",
   },
   {
     accessorKey: "country",
     header: "Country",
-    cell: (props) => <p>{props.getValue()}</p>,
+    cell: (props) => <p className="country"  title={props.getValue()}>{props.getValue()}</p>,
     sortingFn: "alphanumeric",
   },
   {
@@ -47,7 +47,7 @@ export const COLUMN = [
     header: "",
     cell: ({getValue}) => {
       return (
-        <ShowDetail userId={getValue()} />
+        <ShowDetail subscriberId={getValue()} />
       )
     },
     enableSorting: false,

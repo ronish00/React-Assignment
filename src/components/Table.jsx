@@ -39,11 +39,13 @@ const Table = ({ columns, users }) => {
 
   return (
     <>
-      <div>
+      <div style={{ marginBottom: "24px" }}>
         <input
           value={globalFilter}
-          onChange={(e) => {table.setGlobalFilter(e.target.value)}}
-          placeholder="Search..."
+          onChange={(e) => {
+            table.setGlobalFilter(e.target.value);
+          }}
+          placeholder="Search"
         />
       </div>
       <table>
@@ -105,42 +107,43 @@ const Table = ({ columns, users }) => {
           ))}
         </tbody>
       </table>
-      <div style={{ display: "flex" }}>
-        <button
-          className="border rounded p-1"
-          onClick={() => table.firstPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          {"<<"}
-        </button>
-        <button
-          className="border rounded p-1"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          {"<"}
-        </button>
-        <button
-          className="border rounded p-1"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          {">"}
-        </button>
-        <button
-          className="border rounded p-1"
-          onClick={() => table.lastPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          {">>"}
-        </button>
-      </div>
-      <div>
-        <div>Page</div>
-        <strong>
-          {table.getState().pagination.pageIndex + 1} of{" "}
-          {table.getPageCount().toLocaleString()}
-        </strong>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "24px" }}>
+        <div>
+          <p>
+            Page {table.getState().pagination.pageIndex + 1} of{" "}
+            {table.getPageCount().toLocaleString()}
+          </p>
+        </div>
+        <div style={{ display: "flex",gap: "8px"}}>
+          <button
+            className="border rounded p-1"
+            onClick={() => table.firstPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            {"<<"}
+          </button>
+          <button
+            className="border rounded p-1"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            {"<"}
+          </button>
+          <button
+            className="border rounded p-1"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+          >
+            {">"}
+          </button>
+          <button
+            className="border rounded p-1"
+            onClick={() => table.lastPage()}
+            disabled={!table.getCanNextPage()}
+          >
+            {">>"}
+          </button>
+        </div>
       </div>
     </>
   );

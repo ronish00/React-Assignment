@@ -4,9 +4,9 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard.jsx";
-import Users from "./pages/users/Users.jsx";
 import Subscription from "./pages/subscription/Subscription.jsx";
 import { Provider } from "react-redux";
+import Subscribers from "./pages/subscribers/Subscribers.jsx";
 
 
 createRoot(document.getElementById("root")).render(
@@ -15,8 +15,8 @@ createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route path="/" element={<Dashboard />} />
-            <Route path="users" element={<Users />} />
-            <Route path="users/:id" element={<Subscription />} />
+            <Route path="subscribers" element={<Subscribers />} />
+            <Route path="subscribers/:id" element={<Subscription />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,0 +1,19 @@
+table .name{
+    width: 180px;
+}
+
+table .username{
+    width: 150px;
+}
+
+table .country{
+    width: 150px;
+}
+
+table .email{
+    width: 250px;
+}
+
+table .address{
+    width: 180px;
+}
