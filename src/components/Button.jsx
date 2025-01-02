@@ -2,7 +2,7 @@ import React from 'react'
 
 const Button = ({children, onClick = () => {}}) => {
   return (
-    <button onClick={onClick}>
+    <button onClick={onClick} type='button' style={{cursor: "pointer"}}>
       {children}
     </button>
   )
