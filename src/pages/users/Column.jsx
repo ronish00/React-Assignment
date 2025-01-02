@@ -47,7 +47,7 @@ export const COLUMN = [
     header: "",
     cell: ({getValue}) => {
       return (
-        <ShowDetail subscriberId={getValue()} />
+        <ShowDetail userId={getValue()} />
       )
     },
     enableSorting: false,

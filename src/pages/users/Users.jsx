@@ -1,9 +1,9 @@
-import "./subscriber.css"
+import "./users.css"
 import Table from "../../components/Table";
 import { COLUMN } from "./Column";
 import { useFetchQuery } from "../../hooks/useFetchQuery";
 
-function Subscribers() {
+function Users() {
   const {data:users, error, loading} = useFetchQuery('/users.json')
 
   if (error) {
@@ -21,4 +21,4 @@ function Subscribers() {
   );
 }
 
-export default Subscribers;
+export default Users;

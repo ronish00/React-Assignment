@@ -1,12 +1,12 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
-const ShowDetail = ({ subscriberId }) => {
+const ShowDetail = ({ userId }) => {
     const navigate = useNavigate();
 
     const handleShowDetail = () => {
-        navigate(`/subscribers/${subscriberId}`)
+        navigate(`/users/${userId}`)
     }
 
   return (

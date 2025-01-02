@@ -6,9 +6,9 @@ const Header = () => {
 
   const getPageTitle = (pathname) => {
     if (pathname === '/') return 'Dashboard';
-    if (pathname.startsWith('/subscribers')) {
-      const match = pathname.match(/^\/subscribers(\/\d+)?$/);
-      if (match) return 'Subscribers';
+    if (pathname.startsWith('/users')) {
+      const match = pathname.match(/^\/users(\/\d+)?$/);
+      if (match) return 'Users';
     }
   };
 

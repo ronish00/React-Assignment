@@ -11,7 +11,7 @@ const Sidebar = () => {
           <NavLink className={({isActive}) => `${isActive ? 'active' : ''} navitem`} to='/'>Dashboard</NavLink>
         </li>
         <li>
-          <NavLink className={({isActive}) => `${isActive ? 'active' : ''} navitem`} to='/subscribers'>Subscribers</NavLink>
+          <NavLink className={({isActive}) => `${isActive ? 'active' : ''} navitem`} to='/users'>Subscribers</NavLink>
         </li>
       </ul>
     </aside>
