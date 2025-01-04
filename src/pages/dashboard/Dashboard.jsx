@@ -13,13 +13,13 @@ const Dashboard = () => {
     {
       id: 1,
       name: "Total Users",
-      data: users?.length || 0,
+      data: users?.length,
       icon: <Users />
     },
     {
       id: 2,
       name: "Total Subscriptions",
-      data: subscriptions?.length || 0,
+      data: subscriptions?.length,
       icon: <Subscriptions />
     },
     {
