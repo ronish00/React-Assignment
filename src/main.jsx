@@ -14,16 +14,16 @@ const LoadingFallback = () => <div className="spinner">Loading...</div>;
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <Suspense fallback={<LoadingFallback />}>
-        <Routes>
-          <Route path="/" element={<App />}>
-            <Route index element={<Dashboard />} />
-            <Route path="users" element={<Users />} />
-            <Route path="users/:id" element={<Subscription />} />
-          </Route>
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<App />}>
+              <Route index element={<Dashboard />} />
+              <Route path="users" element={<Users />} />
+              <Route path="users/:id" element={<Subscription />} />
+            </Route>
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
   </StrictMode>
 );
