@@ -48,65 +48,67 @@ const Table = ({ columns, users }) => {
           placeholder="Search"
         />
       </div>
-      <table>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  {header.isPlaceholder ? null : (
-                    <div
-                      {...{
-                        onClick: header.column.getToggleSortingHandler(),
-                        style: {
-                          cursor: header.column.getCanSort()
-                            ? "pointer"
-                            : "default",
-                          display: "flex",
-                          gap: "10px",
-                          alignItems: "center",
-                        },
-                      }}
-                    >
-                      {header.column.columnDef.header}
+      <div style={{overflowX: "auto"}}>
+        <table>
+          <thead>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th key={header.id}>
+                    {header.isPlaceholder ? null : (
                       <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "column",
-                          gap: "2px",
+                        {...{
+                          onClick: header.column.getToggleSortingHandler(),
+                          style: {
+                            cursor: header.column.getCanSort()
+                              ? "pointer"
+                              : "default",
+                            display: "flex",
+                            gap: "10px",
+                            alignItems: "center",
+                          },
                         }}
                       >
-                        {header.column.getCanSort()
-                          ? {
-                              asc: <Arrow variant={"down"} />,
-                              desc: <Arrow />,
-                            }[header.column.getIsSorted()] || (
-                              <>
-                                <Arrow variant={"down"} />
-                                <Arrow />
-                              </>
-                            ) // Default button when not sorted
-                          : null}
+                        {header.column.columnDef.header}
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "2px",
+                          }}
+                        >
+                          {header.column.getCanSort()
+                            ? {
+                                asc: <Arrow variant={"down"} />,
+                                desc: <Arrow />,
+                              }[header.column.getIsSorted()] || (
+                                <>
+                                  <Arrow variant={"down"} />
+                                  <Arrow />
+                                </>
+                              ) // Default button when not sorted
+                            : null}
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                    )}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map((row) => (
+              <tr key={row.id}>
+                {row.getVisibleCells().map((cell) => (
+                  <td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "24px" }}>
         <div>
           <p>

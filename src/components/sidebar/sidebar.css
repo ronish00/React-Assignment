@@ -2,15 +2,35 @@
     border-right: 1px solid #ddd;
     position: sticky;
     height: 100vh;
+    width: 240px;
     top: 0;
+    background-color: white;
+}
+
+.sidebar-top{
+    padding: 32px 28px 0;
 }
 
 .logo{
     font-size: 24px;
     font-weight: 600;
-    padding: 32px 28px 0;
     letter-spacing: 2px;
     color: rgb(55, 111, 233);
+}
+
+@media (max-width: 1024px){
+    .sidebar{
+        display: none;
+    }
+
+    .sidebar-active{
+        display: block;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        bottom: 0;
+        left: 0;
+    }
 }
 
 .nav{

@@ -78,3 +78,19 @@ input{
 input:focus-visible{
   outline: 2px solid rgb(55, 111, 233);
 }
+
+.menu{
+  display: none;
+}
+
+@media (max-width: 1024px){
+  .menu{
+      display: block;
+  }
+}
+
+@media (max-width: 1200px){
+  .main-right{
+    width: 100%;
+  }
+}
