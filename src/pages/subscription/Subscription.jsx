@@ -54,16 +54,20 @@ const Subscription = () => {
             }}
           />
           <div className="user-info">
-            <div className="title">
-              <p>Email</p>
-              <p>Address</p>
-              <p>Country</p>
-              <p>Join Date</p>
-            </div>
-            <div className="value">
+            <div className="detail">
+              <p className="title">Email</p>
               <p>{subscriber.email}</p>
+            </div>
+            <div className="detail">
+              <p className="title">Address</p>
               <p>{subscriber.address}</p>
+            </div>
+            <div className="detail">
+              <p className="title">Country</p>
               <p>{subscriber.country}</p>
+            </div>
+            <div className="detail">
+              <p className="title">Join Date</p>
               <p>{subscriber.join_date}</p>
             </div>
           </div>
