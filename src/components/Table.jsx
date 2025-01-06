@@ -15,8 +15,8 @@ const Table = ({ columns, users }) => {
   const [sorting, setSorting] = useState([]);
 
   const [pagination, setPagination] = useState({
-    pageIndex: 0, //initial page index
-    pageSize: 10, //default page size
+    pageIndex: 0,
+    pageSize: 10,
   });
 
   const table = useReactTable({
@@ -86,7 +86,7 @@ const Table = ({ columns, users }) => {
                                   <Arrow variant={"down"} />
                                   <Arrow />
                                 </>
-                              ) // Default button when not sorted
+                              )
                             : null}
                         </div>
                       </div>
